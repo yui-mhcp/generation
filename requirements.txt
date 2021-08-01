@@ -3,7 +3,7 @@ kneed
 python_speech_features
 librosa
 Unidecode
-tensorflow==2.3.2
+tensorflow
 opencv-python
 num2words
 scipy

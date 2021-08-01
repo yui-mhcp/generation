@@ -35,8 +35,8 @@ Available architectures :
 
 | Classes   | Conditionned  | Dataset   | Architecture  | Trainer   | Weights   |
 | :-------: | :-----------: | :-------: | :-----------: | :-------: | :-------: |
-| 10        | No            | `MNIST`   | `DCGAN`       | [me](https://github.com/yui-mhcp) | [Google Drive](https://drive.google.com/drive/folders/1vb41euDXMnF2Ltabhmqc7qPrH-Pxfwjm?usp=sharing)  | 
-| 10        | Yes           | `MNIST`   | `DCGAN`       | [me](https://github.com/yui-mhcp) | [Google Drive](https://drive.google.com/drive/folders/12OhduKMgcMwtjtMNkYaI6ZTAdKJWzs46?usp=sharing)  | 
+| 10        | No            | `MNIST`   | `DCGAN`       | [me](https://github.com/yui-mhcp) | [Google Drive](https://drive.google.com/file/d/1iaj1d8dP8OdYdyNFiSEYEMPCI1Acu04m/view?usp=sharing)  | 
+| 10        | Yes           | `MNIST`   | `DCGAN`       | [me](https://github.com/yui-mhcp) | [Google Drive](https://drive.google.com/file/d/1Do8pPhAIMpxty4-stAcfsrrJgMZLVR7K/view?usp=sharing)  | 
 
 Models must be unzipped in the `pretrained_models/` directory !
 
