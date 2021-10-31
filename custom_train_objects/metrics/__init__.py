@@ -2,15 +2,14 @@ import tensorflow as tf
 
 from custom_train_objects.metrics.metric_list import MetricList, LossMetrics
 
-from custom_train_objects.metrics.gan_metric import GANMetric
 from custom_train_objects.metrics.text_accuracy import TextAccuracy
 from custom_train_objects.metrics.text_metric import TextMetric
 from custom_train_objects.metrics.confusion_matrix import *
 from custom_train_objects.metrics.equal_error_rate import EER
+from custom_train_objects.metrics.gan_metric import GANMetric
 
 _metrics = {
     'EER'                       : EER,
-    'gan_metric'                : GANMetric,
     'GANMetric'                 : GANMetric,
     'TextAccuracy'              : TextAccuracy,
     'TextMetric'                : TextMetric,

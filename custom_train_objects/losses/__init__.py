@@ -30,11 +30,10 @@ _keras_losses = {
 }
 
 _losses = {
-    'gan_loss'          : GANLoss,
-    'GANLoss'           : GANLoss,
     'MaskedMAE'         : MaskedMAE,
     'MaskedMSE'         : MaskedMSE,
     'CTCLoss'           : CTCLoss,
+    'GANLoss'           : GANLoss,
     'GE2ELoss'          : GE2ELoss,
     ** _keras_losses
 }
