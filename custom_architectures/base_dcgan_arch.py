@@ -1,3 +1,4 @@
+import logging
 import numpy as np
 import tensorflow as tf
 
@@ -67,7 +68,8 @@ def simple_generator(noise_size,
         x = input_noise
         
     if n_dense > 0:
-        print("[WARNING]\t It is not recommanded to use Dense layer in generator model !")
+        logging.warning('It is not recommanded to use Dense layers in generator model')
+
         for i in range(n_dense):
             x = DenseBN(x, _get_var(dense_sizes, i), 
                         activation = _get_var(dense_activation, i), 
@@ -79,7 +81,7 @@ def simple_generator(noise_size,
         drop_rate = dense_drop_rate, activation = final_dense_activation,
         name = 'final_dense', ** kwargs
     )
-    
+
     x = Reshape((reshaped_w, reshaped_w, conv_input_channels))(x)
     
     for i in range(n_blocks):

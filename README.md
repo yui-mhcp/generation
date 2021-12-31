@@ -13,10 +13,12 @@
 ├── datasets/               : utilities for dataset loading / processing
 │   ├── custom_datasets/    : where to save custom datasets processing
 ├── hparams/                : utility class to define modulable hyper-parameters
+├── loggers/                : some logging utilities
 ├── models/                 : main `BaseModel` subclasses directory
 │   ├── generation/         : directory for `BaseGAN` subclasses
 ├── pretrained_models/      : saving directory for pretrained models
-└── utils/
+├── unitest/                : custom unitest framework to test models' consistency
+└── utils/                  : utilities for data processing
 ```
 
 See [my data_processing repo](https://github.com/yui-mhcp/data_processing) for more information on the `utils` module and `data processing` features.

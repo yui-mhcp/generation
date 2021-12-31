@@ -1,6 +1,6 @@
 import os
 import glob
-import imageio
+import logging
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -139,12 +139,13 @@ class BaseGAN(BaseModel):
         return generated, scores
     
     def compile(self, 
-                loss            = 'gan_loss',   loss_kwargs = {},
+                loss            = 'GANLoss',    loss_kwargs = {},
                 gen_optimizer   = 'adam',       gen_optimizer_kwargs  = {},
                 dis_optimizer   = 'adam',       dis_optimizer_kwargs  = {},
+                ** kwargs
                ):
         if hasattr(self, 'gan_loss'):
-            print("Models already compiled !")
+            logging.warning("Models already compiled !")
             return
         
         loss_kwargs['labels'] = self.labels
@@ -152,7 +153,7 @@ class BaseGAN(BaseModel):
         loss            = get_loss(loss, ** loss_kwargs)
         gen_optimizer   = get_optimizer(gen_optimizer, ** gen_optimizer_kwargs)
         dis_optimizer   = get_optimizer(dis_optimizer, ** dis_optimizer_kwargs)
-        gan_metric      = get_metrics('gan_metric', labels = self.labels)
+        gan_metric      = get_metrics('GANMetric', labels = self.labels)
         
         self.add_loss(loss, name = "gan_loss")
         self.add_optimizer(gen_optimizer, name = 'generator_optimizer')
@@ -269,13 +270,14 @@ class BaseGAN(BaseModel):
         else:
             gen_accuracy = tf.reduce_mean(tf.cast(fake_pred > self.threshold, tf.float32))
         
-        if gen_accuracy > self.min_update_accuracy or tf.random.uniform(()) < 0.75:
+        if gen_accuracy > self.min_update_accuracy or tf.random.uniform(()) < 0.5:
             dis_grads = dis_tape.gradient(dis_loss, dis_variables)
             self.discriminator_optimizer.apply_gradients(zip(dis_grads, dis_variables))
         
-        return self.update_metrics(
+        self.update_metrics(
             [fake_labels, real_labels], [fake_pred, true_pred]
         )
+        return gen_loss + dis_loss
         
     def eval_step(self, batch):
         (fake_inputs, real_inputs), (fake_labels, real_labels) = batch

@@ -149,11 +149,14 @@ class DCGAN(BaseGAN):
         images = self.de_normalize_image(images)
         
         labels = []
-        for i in range(len(realism_scores)):
-            labels.append({
-                label : (outputs[j+1][i], np.argmax(noise[j+1][i]))
-                for j, label in enumerate(self.labels.keys())
-            })
+        if self.labels is not None:
+            for i in range(len(realism_scores)):
+                labels.append({
+                    label : (outputs[j+1][i], np.argmax(noise[j+1][i]))
+                    for j, label in enumerate(self.labels.keys())
+                })
+        else:
+            labels = [{} for _ in range(len(realism_scores))]
         
         names = [
             'Real {:.2f}{}'.format(s * 100, ''.join([
