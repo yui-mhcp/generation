@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-from models.base_model import BaseModel
+from models.interfaces import BaseModel
 from custom_train_objects import get_optimizer, get_loss, get_metrics
 from utils.image import build_gif
 
