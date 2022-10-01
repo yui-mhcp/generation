@@ -21,6 +21,8 @@ from models.interfaces import BaseModel
 from custom_train_objects import get_optimizer, get_loss, get_metrics
 from utils.image import build_gif
 
+logger = logging.getLogger(__name__)
+
 def random(distribution,
            shape,
            
@@ -157,7 +159,7 @@ class BaseGAN(BaseModel):
                 ** kwargs
                ):
         if hasattr(self, 'gan_loss'):
-            logging.warning("Models already compiled !")
+            logger.warning("Models already compiled !")
             return
         
         loss_kwargs['labels'] = self.labels

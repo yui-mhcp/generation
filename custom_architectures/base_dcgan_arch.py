@@ -18,6 +18,8 @@ from tensorflow.keras.layers import *
 
 from custom_architectures.current_blocks import _get_var, Conv2DTransposeBN, DenseBN
 
+logger  = logging.getLogger(__name__)
+
 def simple_generator(noise_size,
                      output_shape,
                      n_blocks    = 3,
@@ -80,7 +82,7 @@ def simple_generator(noise_size,
         x = input_noise
         
     if n_dense > 0:
-        logging.warning('It is not recommanded to use Dense layers in generator model')
+        logger.warning('It is not recommanded to use Dense layers in generator model')
 
         for i in range(n_dense):
             x = DenseBN(x, _get_var(dense_sizes, i), 
