@@ -309,7 +309,7 @@ class BaseGAN(BaseModel):
         gen_images = os.path.join(self.train_test_dir, '*_gen.png')
         
         kwargs.setdefault('filename', gif_filename)
-        return build_gif(self.train_test_dir, img_name = '*_gen.png', ** kwargs)
+        return build_gif(gen_images, ** kwargs)
     
     def get_config(self, * args, ** kwargs):
         config = super().get_config(* args, ** kwargs)

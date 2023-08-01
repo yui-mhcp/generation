@@ -2,7 +2,7 @@
 
 This project is an example for GAN models. New models will not be added in the near future, as I do not have time for it... It is still maintained and updated, so do not hesitate to contribute or add new models / architectures ! :smile:
 
-**NEW : [CHANGELOG](https://github.com/yui-mhcp/yui-mhcp/blob/main/CHANGELOG.md) file ! Check it to have a global overview of the latest modifications !** :yum:
+Check the [CHANGELOG](https://github.com/yui-mhcp/yui-mhcp/blob/main/CHANGELOG.md) file to have a global overview of the latest modifications ! :yum:
 
 ## Project structure
 
